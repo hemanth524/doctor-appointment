@@ -10,6 +10,8 @@ const Admincontextprovider=(props)=>{
     const [doctors,setDoctors]=useState([])
     const [appointments,setAppointments]=useState([])
     const backendurl=import.meta.env.VITE_BACKEND_URL
+
+    const [dashData,setdashData]=useState(false)
     const getallDoctors=async()=>{
         try {
             const{data}=await axios.post(backendurl + '/api/admin/all-doctors',{},{headers:{admintoken:aToken}})
@@ -77,6 +79,24 @@ const Admincontextprovider=(props)=>{
         }
 
     }
+
+    const getdashData=async()=>{
+        try {
+
+            const {data}=await axios.get(backendurl + '/api/admin/dashboard',{headers:{admintoken:aToken}})
+            if(data.success){
+                setdashData(data.dashData)
+                console.log(data.dashData)
+            }
+            else{
+                toast.error(data.message)
+            }
+
+        } catch (error) {
+               toast.error(error.message)
+        }
+    }
+
     const value={
         aToken,setAtoken,
         backendurl,
@@ -85,7 +105,9 @@ const Admincontextprovider=(props)=>{
         changeAvailability,
         appointments,setAppointments,
         getAllAppointments,
-        cancelAppointment
+        cancelAppointment,
+        dashData,
+        getdashData
     }
     return (
         <Admincontext.Provider value={value}>

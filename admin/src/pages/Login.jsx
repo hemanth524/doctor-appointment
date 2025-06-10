@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import { Admincontext } from '../context/Admincontext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { Doctorcontext } from '../context/Doctorcontext'
 
 const Login = () => {
 
@@ -12,6 +13,7 @@ const Login = () => {
     const [email,setemail]=useState('')
     const [password,setpassword]=useState('')
     const {setAtoken,backendurl}=useContext(Admincontext)
+    const {setDToken}=useContext(Doctorcontext)
 
     const onsubmitHandler = async(event)=>{
         event.preventDefault()
@@ -27,6 +29,16 @@ const Login = () => {
                 }
             }
             else{
+
+                const {data}=await axios.post(backendurl + '/api/doctor/login',{email,password})
+                 if(data.success){
+                    localStorage.setItem('dToken',data.token)
+                    setDToken(data.token)
+                    console.log(data.token)
+                } 
+                else{
+                    toast.error(data.message)
+                }
 
             }
         }
