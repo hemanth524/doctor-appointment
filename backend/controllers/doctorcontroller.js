@@ -77,4 +77,86 @@ const appointmentsDoctor=async(req,res)=>{
     }
 }
 
-export {changeAvailability,doctorList,loginDoctor,appointmentsDoctor}
+const appointmentcomplete = async(req,res)=>{
+    try {
+          const docId = req.docId
+          const appointmentId=req.body.appointmentId
+
+          const appointmentData=await appointModel.findById(appointmentId)
+          if(appointmentData && appointmentData.docId === docId){
+                   await appointModel.findByIdAndUpdate(appointmentId,{isCompleted:true}) 
+                   return res.json({success:true,message:'appointment completed'})
+          } else{
+               return res.json({success:false,message:'mark failed'})
+          }
+
+
+
+    } catch (error) {
+          console.log(error)
+        res.json({success:false,message:error.message})
+    }
+}
+
+const appointmentcancel = async(req,res)=>{
+    try {
+          const docId = req.docId
+          const appointmentId=req.body.appointmentId
+
+          const appointmentData=await appointModel.findById(appointmentId)
+          if(appointmentData && appointmentData.docId === docId){
+                   await appointModel.findByIdAndUpdate(appointmentId,{cancelled:true}) 
+                   return res.json({success:true,message:'appointment cancelled'})
+          } else{
+               return res.json({success:false,message:'cancellation failed'})
+          }
+
+
+
+    } catch (error) {
+          console.log(error)
+        res.json({success:false,message:error.message})
+    }
+}
+
+// api to get doctor data dahsboard
+
+const doctorDashboard=async(req,res)=>{
+
+        try {
+
+            const docId=req.docId
+            const appointments=await appointModel.find({docId})
+            let earning=0
+
+            appointments.map((item)=>{
+                if(item.isCompleted || item.payment){
+                    earning+=item.amount
+                }
+            })
+
+            let patients=[]
+            appointments.map((item)=>{
+                if(!patients.includes(item.userId)){
+                    patients.push(item.userId)
+                }
+            })
+
+            const dashData = {
+                earning,
+                appointments:appointments.length,
+                patients:patients.length,
+                latestAppointments:appointments.reverse().slice(0,5)
+
+            }
+
+            res.json({success:true,dashData})
+
+        } catch (error) {
+             console.log(error)
+        res.json({success:false,message:error.message})
+        }
+
+
+}
+export {changeAvailability,doctorList,loginDoctor,appointmentsDoctor,appointmentcancel,appointmentcomplete,doctorDashboard}
