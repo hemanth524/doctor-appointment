@@ -21,9 +21,21 @@ const Navbar = () => {
       <ul className='hidden md:flex items-start gap-5 font-medium text-lg'>
         <NavLink to={'/'}><li className='py-1'>Home</li></NavLink>
         <NavLink to={'/Doctors'}><li className='py-1'>All Doctors</li></NavLink>
-        <NavLink to={'/Cities'}><li className='py-1'>Cities</li></NavLink>
+        
         <NavLink to={'/About'}><li className='py-1'>About</li></NavLink>
         <NavLink to={'/Contact'}><li className='py-1'>Contact</li></NavLink>
+         
+            {/* Link to the Admin UI */}
+            <a
+              href="http://localhost:5174/admin-dashboard" // Admin UI port
+              target="_blank"             
+              rel="noopener noreferrer" 
+              className='mt-1 border px-2  hover:bg-violet-500 hover:text-white'  
+             
+            >
+              Admin panel
+            </a>
+          
       </ul>
 
       <div className='flex items-center gap-4'>
@@ -55,6 +67,15 @@ const Navbar = () => {
             <NavLink onClick={() => setshowMenu(false)} to='/Doctors'><p className='px-4 py-2'>ALL DOCTORS</p></NavLink>
             <NavLink onClick={() => setshowMenu(false)} to='/About'><p className='px-4 py-2'>ABOUT</p></NavLink>
             <NavLink onClick={() => setshowMenu(false)} to='/Contact'><p className='px-4 py-2'>CONTACT</p></NavLink>
+             <a
+              href="http://localhost:5174/admin-dashboard" // Admin UI port
+              target="_blank"             
+              rel="noopener noreferrer" 
+              className='mt-1 px-4 py-2 border  '  
+             
+            >
+              Admin Panel
+            </a>
           </ul>
         </div>
       </div>
