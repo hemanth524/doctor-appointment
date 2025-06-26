@@ -1,43 +1,50 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import Home from './pages/Home'
-import Doctors from './pages/Doctors'
-import Login from './pages/Login'
-import About from './pages/About'
-import Profile from './pages/Profile'
-import MyAppointments from './pages/MyAppointments'
-import Appointment from './pages/Appointment'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Contact from './pages/Contact'
-import CityDoctors from './pages/Citydoctors'
-import Cities from './pages/Cities'
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Doctors from './pages/Doctors';
+import Login from './pages/Login';
+import About from './pages/About';
+import Profile from './pages/Profile';
+import MyAppointments from './pages/MyAppointments';
+import Appointment from './pages/Appointment';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Contact from './pages/Contact';
+import CityDoctors from './pages/Citydoctors';
+import Cities from './pages/Cities';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
-    <div className='mx-4 sm:mx-[10%]'>
-      <ToastContainer/>
+    <div className="mx-4 sm:mx-[10%]">
+      <ToastContainer />
       <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/doctors' element={<Doctors />} />
-        <Route path='/doctors/:speciality' element={<Doctors />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path="/cities" element={<Cities />} />
-        <Route path='/cities/:cityname' element={<CityDoctors />} />
-        <Route path='/cities/:cityname/:speciality' element={<CityDoctors />} />
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/myappointments' element={<MyAppointments />} />
-        <Route path='/appointment/:docId' element={<Appointment />} />
-      </Routes>
-      <Footer />
-    </div>
-  )
-}
+     
+      {/* Gradient background only for content */}
+      <div className="bg-gradient-to-br from-yellow-100 to-blue-300 min-h-screen py-4 px-2 rounded-md shadow-sm">
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/doctors' element={<Doctors />} />
+          <Route path='/doctors/:speciality' element={<Doctors />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path="/cities" element={<Cities />} />
+          <Route path='/cities/:cityname' element={<CityDoctors />} />
+          <Route path='/cities/:cityname/:speciality' element={<CityDoctors />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/myappointments' element={<MyAppointments />} />
+          <Route path='/appointment/:docId' element={<Appointment />} />
+        </Routes>
+      </div>
 
-export default App
+      <Footer />
+      
+    </div>
+
+  );
+};
+
+export default App;

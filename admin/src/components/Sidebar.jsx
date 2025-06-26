@@ -11,9 +11,9 @@ const Sidebar = () => {
     const {dToken}=useContext(Doctorcontext)
 
   return (
-    <div className='min-h-screen bg-white border-right'>
+    <div className='min-h-screen bg-slate-300 text-white border-right'>
       {
-        aToken && <ul className='text-gray-800 mt-5'>
+        aToken && <ul className='text-black mt-5'>
             <NavLink className={({isActive})=>`flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-72 cursor-pointer ${isActive ? 'bg-violet-300 text-gray-800 border-r-4 border-violet-500':''}`} to={'/admin-dashboard'}>
                 <img src={assets.home_icon} alt=""/>
                 <p className='hidden md:block'>Dashboard</p>
