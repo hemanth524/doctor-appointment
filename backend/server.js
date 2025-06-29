@@ -23,7 +23,7 @@ app.use(cors({
         'https://doctor-appointment-admin-c4x5.onrender.com'
     ], // <--- ADD 5175 HERE!
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'token', 'admintoken'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'token', 'dToken','admintoken'],
 }));
 
 app.use('/api/admin', adminRouter);
