@@ -19,7 +19,8 @@ app.use(express.json());
 // Configure CORS to allow requests from both frontend and admin UI
 app.use(cors({
     origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175',
-        'https://doctor-appointment-client-u1l4.onrender.com'
+        'https://doctor-appointment-client-u1l4.onrender.com',
+        'https://doctor-appointment-admin-c4x5.onrender.com'
     ], // <--- ADD 5175 HERE!
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization', 'token', 'admintoken'],
