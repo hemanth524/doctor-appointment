@@ -9,7 +9,7 @@ const Admincontextprovider=(props)=>{
     const [aToken,setAtoken]=useState(localStorage.getItem('aToken')?localStorage.getItem('aToken'):'')
     const [doctors,setDoctors]=useState([])
     const [appointments,setAppointments]=useState([])
-    const backendurl=import.meta.env.VITE_BACKEND_URL
+    const backendurl='https://doctor-appointment-backend-okdh.onrender.com'
 
     const [dashData,setdashData]=useState(false)
     const getallDoctors=async()=>{
