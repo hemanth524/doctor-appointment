@@ -26,7 +26,7 @@ const Navbar = () => {
 
         {/* Updated to Render Admin URL */}
         <a
-          href="https://doctor-appointment-admin-c4x5.onrender.com/admin-dashboard"
+          href="https://doctor-appointment-admin-c4x5.onrender.com"
           target="_blank"
           rel="noopener noreferrer"
           className='mt-1 border px-2 hover:bg-violet-500 hover:text-white'
@@ -65,7 +65,7 @@ const Navbar = () => {
 
             {/* Updated to Render Admin URL */}
             <a
-              href="https://doctor-appointment-admin-c4x5.onrender.com/admin-dashboard"
+              href="https://doctor-appointment-admin-c4x5.onrender.com"
               target="_blank"
               rel="noopener noreferrer"
               className='mt-1 px-4 py-2 border'
