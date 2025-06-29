@@ -6,7 +6,7 @@ export const Appcontext = createContext();
 
 const AppcontextProvider = (props) => {
   const currencySymbol = '$';
-  const backendurl = import.meta.env.VITE_BACKEND_URL;
+  const backendurl = 'https://doctor-appointment-backend-okdh.onrender.com';
   const [doctors, setDoctors] = useState([]);
   const [token, settoken] = useState(localStorage.getItem('token')?localStorage.getItem('token'):false);
 
@@ -15,7 +15,7 @@ const AppcontextProvider = (props) => {
 
   const getDoctorsData = async () => {
     try {
-      const { data } = await axios.get( '/api/doctor/list');
+      const { data } = await axios.get(backendurl + '/api/doctor/list');
       if (data.success) {
         setDoctors(data.doctors);
       } else {
@@ -30,7 +30,7 @@ const AppcontextProvider = (props) => {
   const loaduserProfileData=async(req ,res)=>{
     try {
       
-      const {data}=await axios.get( '/api/user/getprofile',{headers:{token}})
+      const {data}=await axios.get(backendurl + '/api/user/getprofile',{headers:{token}})
       if(data.success){
         setUserdata(data.userData)
       }

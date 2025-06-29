@@ -17,7 +17,7 @@ const Login = () => {
 
     try {
       if (state === 'Sign up') {
-        const { data } = await axios.post( '/api/user/register', { name, email, password });
+        const { data } = await axios.post(backendurl + '/api/user/register', { name, email, password });
         if (data.success) {
           localStorage.setItem('token', data.token);
           settoken(data.token);
@@ -26,7 +26,7 @@ const Login = () => {
           toast.error(data.message);
         }
       } else {
-        const { data } = await axios.post( '/api/user/login', { email, password });
+        const { data } = await axios.post(backendurl + '/api/user/login', { email, password });
         if (data.success) {
           localStorage.setItem('token', data.token);
           settoken(data.token);
