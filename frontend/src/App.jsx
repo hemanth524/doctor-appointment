@@ -11,7 +11,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Contact from './pages/Contact';
 
-import Cities from './pages/Cities';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -31,7 +30,7 @@ const App = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path="/cities" element={<Cities />} />
+         
           
           <Route path='/profile' element={<Profile />} />
           <Route path='/myappointments' element={<MyAppointments />} />
