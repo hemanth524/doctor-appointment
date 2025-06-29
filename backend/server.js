@@ -31,4 +31,4 @@ app.get('/', (req, res) => {
     res.send("API working fine ");
 });
 
-app.listen(port,'0.0.0.0' () => console.log("Server started", port));
+app.listen(port,'0.0.0.0', () => console.log("Server started", port));
