@@ -28,7 +28,7 @@ app.use('/api/doctor', doctorRouter);
 app.use('/api/user', userRouter);
 
 app.get('/', (req, res) => {
-    res.send("API working great ");
+    res.send("API working fine ");
 });
 
 app.listen(port,'0.0.0.0' () => console.log("Server started", port));
