@@ -30,13 +30,8 @@ const App = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
-<<<<<<< HEAD
-        
-         
-=======
          
           
->>>>>>> 5729ad53dbd099f1436b8e6b01da2a31fff30325
           <Route path='/profile' element={<Profile />} />
           <Route path='/myappointments' element={<MyAppointments />} />
           <Route path='/appointment/:docId' element={<Appointment />} />
