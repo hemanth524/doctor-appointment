@@ -6,7 +6,7 @@ import axios from 'axios';
 import {toast} from 'react-toastify'
 
 const Profile = () => {
-  const { userData, setUserdata, token, backendurl, loaduserProfileData } =
+  const { userData, setUserdata, token,  loaduserProfileData } =
     useContext(Appcontext);
 
   const [isedit, setedit] = useState(false);
@@ -26,7 +26,7 @@ const Profile = () => {
 
             image && formData.append('image',image)
 
-            const {data}=await axios.post(backendurl + '/api/user/update-profile',formData,{headers:{token}})
+            const {data}=await axios.post( '/api/user/update-profile',formData,{headers:{token}})
             if(data.success){
               toast.success(data.message)
              await loaduserProfileData()
